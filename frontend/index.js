@@ -68,7 +68,7 @@ async function moduleProject4() {
         let temp = card.children[2];
         let precipitation = card.children[3];
 
-        weekDay.textContent = getWeekDay(day.date)
+        weekDay.textContent = getWeekDay(day.date);
         apparent.textContent = descriptions.find(a => a[0] === day.weather_description)[1];
         temp.textContent = `${day.temperature_min}°/${day.temperature_max}°`;
         precipitation.textContent = `Precipitation: ${day.precipitation_probability * 100}%`;
@@ -78,6 +78,11 @@ async function moduleProject4() {
       console.log(err.message);
     };
   })
+
+  function getWeekDay(dateString) {
+    const date = new Date(dateString);
+    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    return weekdays[date.getDay()+1];
 
   // 👆 WORK WORK ABOVE THIS LINE 👆
 
